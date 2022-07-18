@@ -4,18 +4,24 @@ using ScrapeShark.Client;
 
 namespace ScrapeShark;
 
-internal class ScrapeSharkClient : IScrapeSharkClient
+public class ScrapeSharkClient : IScrapeSharkClient
 {
     private readonly IScrapeSharkApi _api;
     private readonly string _apiKey;
 
-    public ScrapeSharkClient(IScrapeSharkApi api, IOptions<ScrapeSharkOptions> options)
+    internal ScrapeSharkClient(IScrapeSharkApi api, IOptions<ScrapeSharkOptions> options)
     {
         if (string.IsNullOrWhiteSpace(options.Value.ApiKey))
             throw new ArgumentNullException(nameof(options.Value.ApiKey), "Please provide a valid ScrapeShark API key");
 
         _api = api;
         _apiKey = options.Value.ApiKey;
+    }
+
+    public ScrapeSharkClient(string apiKey)
+    {
+        _api = new ScrapeSharkApi(new Uri("https://api.scrapeshark.com/v1/", UriKind.Absolute));
+        _apiKey = apiKey ?? throw new ArgumentNullException(nameof(apiKey));
     }
 
     public async Task<ScrapeResult> ScrapeAsync(ScrapeOptions options)
