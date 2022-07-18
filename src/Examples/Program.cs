@@ -1,7 +1,8 @@
 ﻿using System.Text.RegularExpressions;
 using ScrapeShark;
+using ScrapeShark.Extensions;
 
-IScrapeSharkClient client = new ScrapeSharkClient("");
+IScrapeSharkClient client = new ScrapeSharkClient("sh_RxIVVPsqaCzKvfBCtw1LfQ7M1v9B1Lw7");
 
 ScrapeResult content = await client.ScrapeAsync("https://api.ipify.org/?format=raw");
 ScreenshotResult screenshot = await client.ScreenshotAsync("https://scrapeshark.com");
@@ -16,9 +17,6 @@ Match ip = Regex.Match(content.Content, @"\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b");
 
 Console.WriteLine($"Proxy IP: {ip}");
 
-await using var fs =
-    new FileStream(File.OpenHandle("Screenshot.png", FileMode.Create, FileAccess.Write), FileAccess.Write);
-
-await fs.WriteAsync(screenshot.Buffer, 0, screenshot.Buffer.Length);
+await screenshot.SaveToFileAsync("Screenshot.png");
 
 Console.ReadLine();
