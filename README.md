@@ -18,7 +18,7 @@ IScrapeSharkClient client = new ScrapeSharkClient("<YOUR API KEY>");
 
 If you don't have an API key yet, you can obtain one from your [Account Dashboard](https://dashboard.scrapeshark.com/account/keys).
 
-## Content
+## Scrape Content
 
 Using ScrapeShark, you can capture the content of a web page with a single line of code, while also ensuring any JavaScript is rendered, and your request is well hidden behind multiple proxies:
 
@@ -28,7 +28,7 @@ ScrapeResult content = await client.ScrapeAsync("https://api.ipify.org/?format=r
 
 The `ScrapeResult` will contain the status code, and content if the request was successful. For more information on some of the techniques we employ, visit our [Web Scraping Without Getting Blocked](https://scrapeshark.com/blog/web-scraping-without-getting-blocked) article.
 
-## Screenshot
+## Capture Screenshot
 
 Capturing a screenshot is easy:
 
@@ -41,6 +41,10 @@ The `ScreenshotResult` will contain the response status code, and if successful,
 ```csharp
 await screenshot.SaveToFileAsync("Screenshot.png");
 ```
+
+## Documentation
+
+For more information on our API, as well as elaborate documentation, please refer to the [ScrapeShark API Documentation](https://scrapeshark.com/docs/intro).
 
 # Contributions
 
