@@ -8,7 +8,7 @@ You can grab the latest version directly from NuGet:
 nuget install ScrapeShark
 ```
 
-## Setup
+# Usage
 
 After installing the client library, create a new client using your API key:
 
