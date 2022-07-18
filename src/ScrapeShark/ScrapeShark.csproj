@@ -4,7 +4,21 @@
     <TargetFrameworks>net6.0;net5.0;netstandard2.1</TargetFrameworks>
     <ImplicitUsings>false</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>ScrapeShark Contributors</Authors>
+    <Description>Scraping without the hassle. Capture screenshots of webpages and scrape contents with a single line of code.</Description>
+    <PackageProjectUrl>https://scrapeshark.com</PackageProjectUrl>
+    <PackageIcon>shark.png</PackageIcon>
+    <RepositoryUrl>https://github.com/scrapeshark/scrapeshark-dotnet</RepositoryUrl>
+    <PackageTags>scraping, web scraping, scraper, screenshot, webpage scraper</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\shark.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
