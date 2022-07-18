@@ -1,11 +1,12 @@
-﻿namespace ScrapeShark;
-
-public sealed class ScrapeOptions
+﻿namespace ScrapeShark
 {
-    public ScrapeOptions(string url)
+    public sealed class ScrapeOptions
     {
-        Url = url;
-    }
+        public ScrapeOptions(string url)
+        {
+            Url = url;
+        }
 
-    public string Url { get; init; }
+        public string Url { get; set; }
+    }
 }

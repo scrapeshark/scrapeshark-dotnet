@@ -1,20 +1,22 @@
-﻿namespace ScrapeShark.Extensions;
+﻿using System;
+using System.IO;
+using System.Threading.Tasks;
 
-public static class ScreenshotResultExtensions
+namespace ScrapeShark.Extensions
 {
-    public static async Task SaveToFileAsync(this ScreenshotResult result, string fileName)
+    public static class ScreenshotResultExtensions
     {
-        if (string.IsNullOrWhiteSpace(fileName))
-            throw new ArgumentNullException(nameof(fileName));
+        public static async Task SaveToFileAsync(this ScreenshotResult result, string fileName)
+        {
+            if (string.IsNullOrWhiteSpace(fileName))
+                throw new ArgumentNullException(nameof(fileName));
 
-        var fi = new FileInfo(fileName);
+            FileInfo fi = new FileInfo(fileName);
 
-        if (fi.Exists)
-            throw new ArgumentException($"A file with {fileName} already exists");
+            if (fi.Exists)
+                throw new ArgumentException($"A file with {fileName} already exists");
 
-        await using var fs =
-            new FileStream(File.OpenHandle(fileName, FileMode.CreateNew, FileAccess.Write), FileAccess.Write);
-
-        await fs.WriteAsync(result.Buffer, 0, result.Buffer.Length);
+            await File.WriteAllBytesAsync(fileName, result.Buffer);
+        }
     }
 }

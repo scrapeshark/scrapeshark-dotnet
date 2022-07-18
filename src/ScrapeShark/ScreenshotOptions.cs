@@ -1,11 +1,12 @@
-﻿namespace ScrapeShark;
-
-public sealed class ScreenshotOptions
+﻿namespace ScrapeShark
 {
-    public ScreenshotOptions(string url)
+    public sealed class ScreenshotOptions
     {
-        Url = url;
-    }
+        public ScreenshotOptions(string url)
+        {
+            Url = url;
+        }
 
-    public string Url { get; init; }
+        public string Url { get; set; }
+    }
 }

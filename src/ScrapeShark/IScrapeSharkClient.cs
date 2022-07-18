@@ -1,24 +1,29 @@
-﻿namespace ScrapeShark;
+﻿using System;
+using System.Threading.Tasks;
 
-public interface IScrapeSharkClient
+namespace ScrapeShark
 {
-    Task<ScrapeResult> ScrapeAsync(ScrapeOptions options);
-
-    Task<ScrapeResult> ScrapeAsync(string url)
+    public interface IScrapeSharkClient
     {
-        if (string.IsNullOrWhiteSpace(url))
-            throw new ArgumentNullException(nameof(url));
+        Task<ScrapeResult> ScrapeAsync(ScrapeOptions options);
 
-        return ScrapeAsync(new ScrapeOptions(url));
+        Task<ScrapeResult> ScrapeAsync(string url)
+        {
+            if (string.IsNullOrWhiteSpace(url))
+                throw new ArgumentNullException(nameof(url));
+
+            return ScrapeAsync(new ScrapeOptions(url));
+        }
+
+        Task<ScreenshotResult> ScreenshotAsync(ScreenshotOptions options);
+
+        Task<ScreenshotResult> ScreenshotAsync(string url)
+        {
+            if (string.IsNullOrWhiteSpace(url))
+                throw new ArgumentNullException(nameof(url));
+
+            return ScreenshotAsync(new ScreenshotOptions(url));
+        }
     }
 
-    Task<ScreenshotResult> ScreenshotAsync(ScreenshotOptions options);
-
-    Task<ScreenshotResult> ScreenshotAsync(string url)
-    {
-        if (string.IsNullOrWhiteSpace(url))
-            throw new ArgumentNullException(nameof(url));
-
-        return ScreenshotAsync(new ScreenshotOptions(url));
-    }
 }
