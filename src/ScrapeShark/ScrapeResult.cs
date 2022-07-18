@@ -1,14 +1,16 @@
-﻿namespace ScrapeShark;
-
-public sealed class ScrapeResult
+﻿namespace ScrapeShark
 {
-    public ScrapeResult(int statusCode, string content)
+    public sealed class ScrapeResult
     {
-        StatusCode = statusCode;
-        Content = content;
+        public ScrapeResult(int statusCode, string content)
+        {
+            StatusCode = statusCode;
+            Content = content;
+        }
+
+        public int StatusCode { get; }
+
+        public string Content { get; }
     }
 
-    public int StatusCode { get; }
-
-    public string Content { get; }
 }

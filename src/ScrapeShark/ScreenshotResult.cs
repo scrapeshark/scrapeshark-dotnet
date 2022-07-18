@@ -1,14 +1,15 @@
-﻿namespace ScrapeShark;
-
-public sealed class ScreenshotResult
+﻿namespace ScrapeShark
 {
-    public ScreenshotResult(int statusCode, byte[] buffer)
+    public sealed class ScreenshotResult
     {
-        StatusCode = statusCode;
-        Buffer = buffer;
+        public ScreenshotResult(int statusCode, byte[] buffer)
+        {
+            StatusCode = statusCode;
+            Buffer = buffer;
+        }
+
+        public int StatusCode { get; }
+
+        public byte[] Buffer { get; }
     }
-
-    public int StatusCode { get; }
-
-    public byte[] Buffer { get; }
 }
