@@ -55,7 +55,7 @@ namespace ScrapeShark.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse> GetContentWithHttpMessagesAsync(string url = default(string), string apiKey = default(string), bool? includeJavaScript = true, string elementSelector = default(string), bool? includeStyleSheets = false, bool? includeImages = false, string browser = "Firefox", int? waitMilliseconds = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> GetContentWithHttpMessagesAsync(string url = default(string), string apiKey = default(string), bool? includeJavaScript = true, string elementSelector = default(string), bool? includeStyleSheets = false, bool? includeImages = false, string browser = "Chromium", int? waitMilliseconds = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='url'>
         /// </param>
@@ -75,7 +75,7 @@ namespace ScrapeShark.Client
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse> GetScreenshotWithHttpMessagesAsync(string url = default(string), string apiKey = default(string), bool? isFullPage = false, string elementSelector = default(string), string browser = "Firefox", int? waitMilliseconds = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> GetScreenshotWithHttpMessagesAsync(string url = default(string), string apiKey = default(string), bool? isFullPage = false, string elementSelector = default(string), string browser = "Chromium", int? waitMilliseconds = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

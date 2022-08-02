@@ -31,7 +31,10 @@ namespace ScrapeShark
             if (options == null)
                 throw new ArgumentNullException(nameof(options));
 
-            HttpOperationResponse? result = await _api.GetContentWithHttpMessagesAsync(options.Url, _apiKey);
+            HttpOperationResponse? result = await _api.GetContentWithHttpMessagesAsync(options.Url, _apiKey,
+                browser: options.Browser, includeImages: options.IncludeImages,
+                includeJavaScript: options.IncludeJavaScript, includeStyleSheets: options.IncludeStyleSheets,
+                waitMilliseconds: options.WaitDuration.Milliseconds, elementSelector: options.ElementSelector);
 
             return new ScrapeResult((int)result.Response.StatusCode, await result.Response.Content.ReadAsStringAsync());
         }
@@ -41,7 +44,9 @@ namespace ScrapeShark
             if (options == null)
                 throw new ArgumentNullException(nameof(options));
 
-            HttpOperationResponse? result = await _api.GetScreenshotWithHttpMessagesAsync(options.Url, _apiKey);
+            HttpOperationResponse? result = await _api.GetScreenshotWithHttpMessagesAsync(options.Url, _apiKey,
+                isFullPage: options.IsFullPage, elementSelector: options.ElementSelector, browser: options.Browser,
+                waitMilliseconds: options.WaitDuration.Milliseconds);
 
             return new ScreenshotResult((int)result.Response.StatusCode,
                 await result.Response.Content.ReadAsByteArrayAsync());

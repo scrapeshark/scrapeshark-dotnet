@@ -36,7 +36,7 @@ namespace ScrapeShark.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task GetContentAsync(this IScrapeSharkApi operations, string url = default(string), string apiKey = default(string), bool? includeJavaScript = true, string elementSelector = default(string), bool? includeStyleSheets = false, bool? includeImages = false, string browser = "Firefox", int? waitMilliseconds = 0, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task GetContentAsync(this IScrapeSharkApi operations, string url = default(string), string apiKey = default(string), bool? includeJavaScript = true, string elementSelector = default(string), bool? includeStyleSheets = false, bool? includeImages = false, string browser = "Chromium", int? waitMilliseconds = 0, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.GetContentWithHttpMessagesAsync(url, apiKey, includeJavaScript, elementSelector, includeStyleSheets, includeImages, browser, waitMilliseconds, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
@@ -59,7 +59,7 @@ namespace ScrapeShark.Client
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task GetScreenshotAsync(this IScrapeSharkApi operations, string url = default(string), string apiKey = default(string), bool? isFullPage = false, string elementSelector = default(string), string browser = "Firefox", int? waitMilliseconds = 0, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task GetScreenshotAsync(this IScrapeSharkApi operations, string url = default(string), string apiKey = default(string), bool? isFullPage = false, string elementSelector = default(string), string browser = "Chromium", int? waitMilliseconds = 0, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.GetScreenshotWithHttpMessagesAsync(url, apiKey, isFullPage, elementSelector, browser, waitMilliseconds, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }

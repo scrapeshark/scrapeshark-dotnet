@@ -181,7 +181,7 @@ namespace ScrapeShark.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> GetContentWithHttpMessagesAsync(string url = default(string), string apiKey = default(string), bool? includeJavaScript = true, string elementSelector = default(string), bool? includeStyleSheets = false, bool? includeImages = false, string browser = "Firefox", int? waitMilliseconds = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> GetContentWithHttpMessagesAsync(string url = default(string), string apiKey = default(string), bool? includeJavaScript = true, string elementSelector = default(string), bool? includeStyleSheets = false, bool? includeImages = false, string browser = "Chromium", int? waitMilliseconds = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -334,7 +334,7 @@ namespace ScrapeShark.Client
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> GetScreenshotWithHttpMessagesAsync(string url = default(string), string apiKey = default(string), bool? isFullPage = false, string elementSelector = default(string), string browser = "Firefox", int? waitMilliseconds = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> GetScreenshotWithHttpMessagesAsync(string url = default(string), string apiKey = default(string), bool? isFullPage = false, string elementSelector = default(string), string browser = "Chromium", int? waitMilliseconds = 0, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
