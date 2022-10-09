@@ -11,6 +11,10 @@
     <PackageIcon>shark.png</PackageIcon>
     <RepositoryUrl>https://github.com/scrapeshark/scrapeshark-dotnet</RepositoryUrl>
     <PackageTags>scraping, web scraping, scraper, screenshot, webpage scraper</PackageTags>
+    <IsPublishable>True</IsPublishable>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
+    <Version>1.1.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

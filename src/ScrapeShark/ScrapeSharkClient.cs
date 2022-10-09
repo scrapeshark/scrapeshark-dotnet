@@ -26,6 +26,11 @@ namespace ScrapeShark
             _apiKey = apiKey ?? throw new ArgumentNullException(nameof(apiKey));
         }
 
+        public ScrapeSharkClient(IOptions<ScrapeSharkOptions> options) : this(options.Value.ApiKey)
+        {
+
+        }
+
         public async Task<ScrapeResult> ScrapeAsync(ScrapeOptions options)
         {
             if (options == null)
