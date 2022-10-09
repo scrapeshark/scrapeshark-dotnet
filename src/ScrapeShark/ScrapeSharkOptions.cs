@@ -1,6 +1,6 @@
 ﻿namespace ScrapeShark
 {
-    internal class ScrapeSharkOptions
+    public class ScrapeSharkOptions
     {
         public string? ApiKey { get; set; }
     }

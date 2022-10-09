@@ -42,6 +42,14 @@ The `ScreenshotResult` will contain the response status code, and if successful,
 await screenshot.SaveToFileAsync("Screenshot.png");
 ```
 
+## Dependency Injection
+
+You will need the `ScrapeShark.DependencyInjection` package from NuGet in order to use DI features. After installing it, simply:
+
+```
+builder.Services.AddScrapeShark("your_api_key");
+```
+
 ## Documentation
 
 For more information on our API, as well as elaborate documentation, please refer to the [ScrapeShark API Documentation](https://scrapeshark.com/docs/intro).
